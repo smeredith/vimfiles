@@ -1,0 +1,7 @@
+" vsvim
+nmap <c-o> :vsc View.NavigateBackward<CR>
+nmap <c-i> :vsc View.NavigateForward<CR>
+nmap <c-^> :vsc Window.NextDocumentWindowNav<CR>
+
+source ~/_vimrc
+

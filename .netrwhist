@@ -1,0 +1,10 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =8
+let g:netrw_dirhist_1='/Users/smeredith/notes/dev'
+let g:netrw_dirhist_2='/Users/smeredith/smeredith.github.io'
+let g:netrw_dirhist_3='/Users/smeredith/introduction-to-computer-science-principles'
+let g:netrw_dirhist_4='/Users/smeredith'
+let g:netrw_dirhist_5='/Users/smeredith/notes/dev'
+let g:netrw_dirhist_6='/Users/smeredith/notes'
+let g:netrw_dirhist_7='/Users/smeredith/notes/dev'
+let g:netrw_dirhist_8='/Users/smeredith/dev'
