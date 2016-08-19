@@ -17,13 +17,6 @@ let g:bufExplorerDisableDefaultKeyMapping=1
 " Don't let Solarized remap F5 by not loading the plugin. (But can't toggle background.)
 let g:loaded_togglebg = 1
 
-" Plasticboy vim-markdown
-" let g:vim_markdown_emphasis_multiline = 0
-" let g:vim_markdown_folding_disabled = 1
-" let g:vim_markdown_conceal = 0
-" let g:vim_markdown_new_list_item_indent = 0
-" let g:vim_markdown_no_default_key_mappings = 1
-
 " Make vim-markdown-folding show only top level headers by default.
 let g:markdown_fold_style = 'nested'
 
@@ -360,8 +353,8 @@ function! SetProseOptions()
 endfunction
 
 " Set tabstop to 2 for xml files.
-autocmd FileType xml,markdown set softtabstop=2
-autocmd FileType xml,markdown set shiftwidth=2
+autocmd FileType xml,markdown set softtabstop=4
+autocmd FileType xml,markdown set shiftwidth=4
 
 " Set filetype.
 autocmd BufReadPost,BufNewFile *.md set filetype=markdown
