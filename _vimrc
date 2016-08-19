@@ -118,6 +118,13 @@ imap <F1> <nop>
 " Select block that was just pasted.
 nmap gV `[v`]
 
+" Clean whitespace from end of all lines and
+" replace special characters with standard ones.
+function! CleanBuffer()
+    :%s/\s\+$//
+    :%s/’/'/g
+endfunction
+
 " Change the leader to be a comma instead of a slash.
 let mapleader=","
 
@@ -142,8 +149,9 @@ nmap <leader>bl :BufExplorer<CR>
 " Clean whitespace from end of current line.
 nmap <leader>cl :.s/\s\+$//<CR>
 
-" Clean whitespace from end of all lines in the buffer.
-nmap <leader>ca :%s/\s\+$//<CR>
+" Clean whitespace from end of all lines in the buffer
+" and replace fancy single quotes.
+nmap <leader>ca :call CleanBuffer()<CR>
 
 " Turn off any highlighed search text.
 nmap <leader>nh :nohls<CR>
