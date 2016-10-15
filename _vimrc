@@ -104,6 +104,9 @@ endif
 
 " ==================================================
 
+" No bells!
+set belloff=all
+
 " Don't let the mouse move the cursor position. This helps with accidental
 " trackpad contact on laptop.
 set mouse=
