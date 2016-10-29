@@ -130,10 +130,11 @@ function! CleanBuffer()
 endfunction
 
 " Change the line find undo to be a backslash instead of a comma.
-nmap \ ,
+nnoremap \ ,
 
 " Change the leader to be a comma instead of a backslash.
 let mapleader=","
+let maplocalleader=","
 
 " Map the various registers to a leader shortcut for pasting from them.
 nmap <leader>0 "0p
