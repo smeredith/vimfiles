@@ -126,9 +126,13 @@ nmap gV `[v`]
 function! CleanBuffer()
     :%s/\s\+$//
     :%s/’/'/g
+    :%s/\(“\|”\)/"/g
 endfunction
 
-" Change the leader to be a comma instead of a slash.
+" Change the line find undo to be a backslash instead of a comma.
+nmap \ ,
+
+" Change the leader to be a comma instead of a backslash.
 let mapleader=","
 
 " Map the various registers to a leader shortcut for pasting from them.
