@@ -29,6 +29,9 @@ elseif has('mac')
 
     let g:clang_library_path='/Library/Developer/CommandLineTools/usr/lib'
     let g:clang_user_options='-std=c++14 -stdlib=libstd++ -isystem /usr/include/clang/3.6/include'
+elseif has('unix')
+    " disable on unix for now
+    let g:clang_complete_loaded=1
 else
     let g:clang_library_path='/usr/lib/llvm-3.6/lib'
     let g:clang_user_options='.clang_complete'
