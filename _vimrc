@@ -41,70 +41,6 @@ let g:clang_hl_errors=1
 let g:clang_periodic_quickfix=1
 let g:clang_auto_user_options = "compile_commands.json"
 
-" vim-clang-format (doesn't work on Windows)
-if !has('win32') && !has('win64')
-let g:clang_format#style_options = {
-    \ "AccessModifierOffset" : -4,
-    \ "AlignAfterOpenBracket" : "true",
-    \ "AlignEscapedNewlinesLeft" : "false",
-    \ "AlignOperands" : "true",
-    \ "AlignTrailingComments" : "true",
-    \ "AllowAllParametersOfDeclarationOnNextLine" : "true",
-    \ "AllowShortBlocksOnASingleLine" : "false",
-    \ "AllowShortCaseLabelsOnASingleLine" : "false",
-    \ "AllowShortIfStatementsOnASingleLine" : "false",
-    \ "AllowShortLoopsOnASingleLine" : "false",
-    \ "AllowShortFunctionsOnASingleLine" : "Empty",
-    \ "AlwaysBreakAfterDefinitionReturnType" : "false",
-    \ "AlwaysBreakTemplateDeclarations" : "true",
-    \ "AlwaysBreakBeforeMultilineStrings" : "false",
-    \ "BreakBeforeBinaryOperators" : "None",
-    \ "BreakBeforeTernaryOperators" : "true",
-    \ "BreakConstructorInitializersBeforeComma" : "false",
-    \ "BinPackParameters" : "false",
-    \ "BinPackArguments" : "false",
-    \ "ColumnLimit" : 100,
-    \ "ConstructorInitializerAllOnOneLineOrOnePerLine" : "true",
-    \ "ConstructorInitializerIndentWidth" : 4,
-    \ "DerivePointerAlignment" : "false",
-    \ "ExperimentalAutoDetectBinPacking" : "false",
-    \ "IndentCaseLabels" : "false",
-    \ "IndentWrappedFunctionNames" : "false",
-    \ "IndentFunctionDeclarationAfterType" : "false",
-    \ "MaxEmptyLinesToKeep" : 1,
-    \ "KeepEmptyLinesAtTheStartOfBlocks" : "true",
-    \ "NamespaceIndentation" : "None",
-    \ "ObjCBlockIndentWidth" : 2,
-    \ "ObjCSpaceAfterProperty" : "false",
-    \ "ObjCSpaceBeforeProtocolList" : "true",
-    \ "PenaltyBreakBeforeFirstCallParameter" : 19,
-    \ "PenaltyBreakComment" : 300,
-    \ "PenaltyBreakString" : 1000,
-    \ "PenaltyBreakFirstLessLess" : 120,
-    \ "PenaltyExcessCharacter" : 1000000,
-    \ "PenaltyReturnTypeOnItsOwnLine" : 60,
-    \ "PointerAlignment" : "Left",
-    \ "SpacesBeforeTrailingComments" : 1,
-    \ "Cpp11BracedListStyle" : "true",
-    \ "Standard" : "Cpp11",
-    \ "IndentWidth" : 4,
-    \ "TabWidth" : 8,
-    \ "UseTab" : "Never",
-    \ "BreakBeforeBraces" : "Stroustrup",
-    \ "SpacesInParentheses" : "false",
-    \ "SpacesInSquareBrackets" : "false",
-    \ "SpacesInAngles" : "false",
-    \ "SpaceInEmptyParentheses" : "false",
-    \ "SpacesInCStyleCastParentheses" : "false",
-    \ "SpaceAfterCStyleCast" : "false",
-    \ "SpacesInContainerLiterals" : "true",
-    \ "SpaceBeforeAssignmentOperators" : "true",
-    \ "ContinuationIndentWidth" : 4,
-    \ "SpaceBeforeParens" : "ControlStatements",
-    \ "DisableFormat" : "false"
-    \ }
-endif
-
 " ==================================================
 
 " No bells!
@@ -138,18 +74,6 @@ nnoremap \ ,
 " Change the leader to be a comma instead of a backslash.
 let mapleader=","
 let maplocalleader=","
-
-" Map the various registers to a leader shortcut for pasting from them.
-nmap <leader>0 "0p
-nmap <leader>1 "1p
-nmap <leader>2 "2p
-nmap <leader>3 "3p
-nmap <leader>4 "4p
-nmap <leader>5 "5p
-nmap <leader>6 "6p
-nmap <leader>7 "7p
-nmap <leader>8 "8p
-nmap <leader>9 "9p
 
 " Switch to alternate buffer.
 nmap <leader>ba <C-^>
@@ -254,10 +178,6 @@ map <M-Right> <C-W>>
 botright copen
 botright cwindow
 
-" ==================================================
-" Settings
-" ==================================================
-
 if has("gui_running")
     set background=light
     colorscheme solarized
@@ -319,9 +239,6 @@ set splitbelow
 
 " Don't wrap lines.
 set nowrap
-
-" Create directory for backup files and swap files.
-" silent execute '!mkdir "'.$HOME.'/vimbackup"'
 
 set backupdir=$HOME/vimbackup//
 set directory=$HOME/vimswap//
