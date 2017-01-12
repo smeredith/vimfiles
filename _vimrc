@@ -41,7 +41,6 @@ let g:clang_hl_errors=1
 let g:clang_periodic_quickfix=1
 let g:clang_auto_user_options = "compile_commands.json"
 
-" ==================================================
 
 " No bells!
 set belloff=all
