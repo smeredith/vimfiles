@@ -29,7 +29,7 @@ let g:markdown_fold_style = 'nested'
 
 " Clang-Format
 let g:clang_format#command=$CLANGFORMAT_COMMAND
-map <leader>fc :ClangFormat<CR>
+map <leader>cf :ClangFormat<CR>
 
 " You Complete Me
 " Requires compile_commands.json in enlistment root.
