@@ -2,6 +2,13 @@
 " changes other options as a side effect.
 set nocompatible
 
+" Change the line find undo to be a backslash instead of a comma.
+nnoremap \ ,
+
+" Change the leader to be a comma instead of a backslash.
+let mapleader=","
+let maplocalleader=","
+
 " ==================================================
 " Plugin settings.
 " ==================================================
@@ -20,27 +27,16 @@ let g:loaded_togglebg = 1
 " Make vim-markdown-folding show only top level headers by default.
 let g:markdown_fold_style = 'nested'
 
-" clang_complete (disable for Windows)
-if has('win32') || has('win64')
-    let g:clang_complete_loaded=1
-elseif has('mac')
-    " disable on mac for now
-    let g:clang_complete_loaded=1
+" Clang-Format
+let g:clang_format#command=$CLANGFORMAT_COMMAND
+map <leader>fc :ClangFormat<CR>
 
-    let g:clang_library_path='/Library/Developer/CommandLineTools/usr/lib'
-    let g:clang_user_options='-std=c++14 -stdlib=libstd++ -isystem /usr/include/clang/3.6/include'
-elseif has('unix')
-    " disable on unix for now
-    let g:clang_complete_loaded=1
-else
-    let g:clang_library_path='/usr/lib/llvm-3.6/lib'
-    let g:clang_user_options='.clang_complete'
-endif
-let g:clang_complete_copen=0
-let g:clang_hl_errors=1
-let g:clang_periodic_quickfix=1
-let g:clang_auto_user_options = "compile_commands.json"
-
+" You Complete Me
+" Requires compile_commands.json in enlistment root.
+nmap <leader>gf :YcmCompleter GoToInclude<CR>
+nmap <leader>gd :YcmCompleter GoToDeclaration<CR>
+nmap <leader>gt :YcmCompleter GetType<CR>
+nmap <leader>fi :YcmCompleter FixIt<CR>
 
 " No bells!
 set belloff=all
@@ -67,12 +63,6 @@ function! CleanBuffer()
     :%s/\(“\|”\)/"/g
 endfunction
 
-" Change the line find undo to be a backslash instead of a comma.
-nnoremap \ ,
-
-" Change the leader to be a comma instead of a backslash.
-let mapleader=","
-let maplocalleader=","
 
 " Switch to alternate buffer.
 nmap <leader>ba <C-^>
