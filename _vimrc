@@ -20,6 +20,8 @@ let g:ctrlp_custom_ignore = {
     \ 'dir':  '\.git$\|build$\|symbols$',
     \ 'file': '\.exe$\|\.so$\|\.dll$',
     \ }
+" Use F5 in ctrlp window to clear cache.
+let g:ctrlp_clear_cache_on_exit = 0
 
 " Using Pathogen to manage plugins.  Use .git as a root marker.
 call pathogen#infect()
