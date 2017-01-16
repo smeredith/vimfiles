@@ -13,6 +13,14 @@ let maplocalleader=","
 " Plugin settings.
 " ==================================================
 
+" Ctrl-p
+let g:ctrlp_root_markers = ['.p4ignore']
+let g:ctrlp_max_files = 0
+let g:ctrlp_custom_ignore = {
+    \ 'dir':  '\.git$\|build$\|symbols$',
+    \ 'file': '\.exe$\|\.so$\|\.dll$',
+    \ }
+
 " Using Pathogen to manage plugins.  Use .git as a root marker.
 call pathogen#infect()
 call pathogen#helptags()
@@ -37,6 +45,10 @@ nmap <leader>gf :YcmCompleter GoToInclude<CR>
 nmap <leader>gd :YcmCompleter GoToDeclaration<CR>
 nmap <leader>gt :YcmCompleter GetType<CR>
 nmap <leader>fi :YcmCompleter FixIt<CR>
+
+let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 " No bells!
 set belloff=all
