@@ -79,7 +79,6 @@ function! CleanBuffer()
     :%s/\(“\|”\)/"/g
 endfunction
 
-
 " Switch to alternate buffer.
 nmap <leader>ba <C-^>
 
@@ -129,23 +128,6 @@ nmap <leader>nw :e $HOME/notes/work/work.md<CR>
 
 " Load personal notes.
 nmap <leader>nj :e $HOME/notes/personal/journal.md<CR>
-
-" Underline the current line to represent a section header in asciidoc.
-nmap <leader>u1 yyp<c-v>$r=
-nmap <leader>u2 yyp<c-v>$r-
-nmap <leader>u3 yyp<c-v>$r~
-nmap <leader>u4 yyp<c-v>$r^
-nmap <leader>u5 yyp<c-v>$r+
-
-" Prefix the current line with some number of #'s to represent a section header in markdown.
-nmap <leader>h1 I# <c-[>$
-nmap <leader>h2 I## <c-[>$
-nmap <leader>h3 I### <c-[>$
-nmap <leader>h4 I#### <c-[>$
-nmap <leader>h5 I##### <c-[>$
-
-" Insert the current date as a top-level asciidoc header.
-nmap <leader>id "='# ' . strftime("%Y-%m-%d %A")<CR>Po<CR>
 
 " Yank the full path w/o the filename to the system clipboard.
 nmap <leader>yp :let @* = expand("%:p:h")<CR>
