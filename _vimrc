@@ -143,16 +143,6 @@ nmap [q :cprev<CR>
 " Windows / Splits
 " ==================================================
 
-" ctrl-jklm moves between windows
-map <c-j> <c-w>j
-map <c-k> <c-w>k
-map <c-l> <c-w>l
-map <c-h> <c-w>h
-
-" Make these all work in insert mode too (<C-O> makes next cmd
-" happen as if in command mode.)
-imap <C-W> <C-O><C-W>
-
 " Use alt-down and alt-up to resize horizontal splits.
 map <M-Down> <C-W>-
 map <M-Up> <C-W>+
@@ -204,8 +194,11 @@ set nrformats-=octal
 " Number of command lines to remember.
 set history=1000
 
-" Backspace and cursor keys wrap to previous/next line.
-set backspace=indent,eol,start whichwrap+=<,>,[,]
+" Backspace over autoindent, line breaks, start of insert
+set backspace=indent,eol,start
+
+" Backspace, space and cursor keys wrap to previous/next line.
+set whichwrap=b,s,<,>,[,]
 
 " Do not unindent if typing #.
 set cinkeys-=0#
