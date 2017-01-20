@@ -74,9 +74,11 @@ nmap gV `[v`]
 " Clean whitespace from end of all lines and
 " replace special characters with standard ones.
 function! CleanBuffer()
-    :%s/\s\+$//
-    :%s/’/'/g
-    :%s/\(“\|”\)/"/g
+    let l:save = winsaveview()
+    :%s/\s\+$//ge
+    :%s/’/'/ge
+    :%s/\(“\|”\)/"/ge
+    call winrestview(l:save)
 endfunction
 
 " Switch to alternate buffer.
@@ -86,7 +88,7 @@ nmap <leader>ba <C-^>
 nmap <leader>bl :BufExplorer<CR>
 
 " Clean whitespace from end of current line.
-nmap <leader>cl :.s/\s\+$//<CR>
+nmap <leader>cl :.s/\s\+$//e<CR>
 
 " Clean whitespace from end of all lines in the buffer
 " and replace fancy single quotes.
