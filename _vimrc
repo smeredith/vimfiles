@@ -97,10 +97,6 @@ nmap <leader>ca :call CleanBuffer()<CR>
 " Turn off any highlighed search text.
 nmap <leader>nh :nohls<CR>
 
-" Paste from last yank but not delete.
-nmap <leader>p "0p
-nmap <leader>P "0P
-
 " Show the registers from things cut/yanked.
 nmap <leader>rr :registers<CR>
 
@@ -144,14 +140,6 @@ nmap [q :cprev<CR>
 " ==================================================
 " Windows / Splits
 " ==================================================
-
-" Use alt-down and alt-up to resize horizontal splits.
-map <M-Down> <C-W>-
-map <M-Up> <C-W>+
-
-" Use alt-left and alt-right to resize vertical splits.
-map <M-Left> <C-W><
-map <M-Right> <C-W>>
 
 " Make quickfix full width.
 botright copen
