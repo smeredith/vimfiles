@@ -217,12 +217,6 @@ set undodir=$HOME/vimundo//
 " Make a backup before saving.
 set writebackup
 
-" Keep the backup even after writing is finished.
-set backup
-
-" Save incremental backups.
-autocmd BufWritePre * let &backupext = '.' . substitute(expand("%:p:h"), ':\|/\|\\' , '%' , 'g') . '.' . strftime("%Y.%m.%d.%H.%M.%S")
-
 " Whitespace characters to show (trailing spaces and tabs).
 set listchars=trail:·,tab:»-
 
