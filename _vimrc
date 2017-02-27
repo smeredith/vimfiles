@@ -253,12 +253,12 @@ function! SetProseOptions()
 endfunction
 
 " Set tabstop to 2 for xml files.
-autocmd FileType xml,markdown set softtabstop=4
-autocmd FileType xml,markdown set shiftwidth=4
+autocmd FileType xml,markdown setlocal softtabstop=4
+autocmd FileType xml,markdown setlocal shiftwidth=4
 
 " Set filetype.
-autocmd BufReadPost,BufNewFile *.md set filetype=markdown
-autocmd BufReadPost,BufNewFile *.adoc set filetype=asciidoc
+autocmd BufReadPost,BufNewFile *.md setlocal filetype=markdown
+autocmd BufReadPost,BufNewFile *.adoc setlocal filetype=asciidoc
 
 " Set options for prose.
 autocmd FileType text :call SetProseOptions()
@@ -266,17 +266,20 @@ autocmd FileType markdown :call SetProseOptions()
 autocmd FileType asciidoc :call SetProseOptions()
 
 " Set encoding for asciidoc.
-autocmd FileType asciidoc set encoding=utf-8
-autocmd FileType asciidoc set fileencoding=utf-8
+autocmd FileType asciidoc setlocal encoding=utf-8
+autocmd FileType asciidoc setlocal fileencoding=utf-8
+
+" Set 2 char spacing for yaml files.
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
 " Fancy % matching, including xml tags.
 :source $VIMRUNTIME/macros/matchit.vim
 
 " Help behavior.
-autocmd filetype help set nonumber
+autocmd filetype help setlocal nonumber
 autocmd filetype help nnoremap <buffer><cr> <c-]>   " Enter selects subject
 autocmd filetype help nnoremap <buffer><bs> <c-T>   " Backspace to go back
-autocmd filetype help set colorcolumn=
+autocmd filetype help setlocal colorcolumn=
 
 " Color column.
 set colorcolumn=100
