@@ -13,6 +13,10 @@ let maplocalleader=","
 " Plugin settings.
 " ==================================================
 
+" netrw
+
+let g:netrw_banner=0
+
 " Ctrl-p
 let g:ctrlp_root_markers = ['.p4ignore']
 let g:ctrlp_max_files = 0
