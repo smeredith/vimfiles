@@ -131,6 +131,13 @@ nmap <leader>yp :let @* = expand("%:p:h")<CR>
 " Yank the full path and filename to the Windows clipboard.
 nmap <leader>yf :let @* = expand("%:p")<CR>
 
+" <leader> s for snippets
+
+" Insert the current date as a top-level asciidoc/markdown header, like:
+" # 2017-03-01 Wednesday
+" then enter insert mode.
+nmap <leader>sdate "='# ' . strftime("%Y-%m-%d %A")<CR>Po<CR>
+
 " Move through quickfix list.
 nmap ]q :cnext<CR>
 nmap [q :cprev<CR>
