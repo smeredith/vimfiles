@@ -52,12 +52,6 @@ nmap <leader>gd :YcmCompleter GoToDeclaration<CR>
 nmap <leader>gt :YcmCompleter GetType<CR>
 nmap <leader>fi :YcmCompleter FixIt<CR>
 
-" UltiSnip
-let g:UltiSnipsSnippetsDir="$HOME/vimfiles/UltiSnips"
-let g:UltiSnipsExpandTrigger="<c-j>"
-let g:UltiSnipsJumpForwardTrigger="<c-j>"
-let g:UltiSnipsJumpBackwardTrigger="<c-k>"
-
 " No bells!
 set belloff=all
 
