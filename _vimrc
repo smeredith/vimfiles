@@ -269,6 +269,7 @@ autocmd BufReadPost,BufNewFile *.adoc setlocal filetype=asciidoc
 autocmd FileType text :call SetProseOptions()
 autocmd FileType markdown :call SetProseOptions()
 autocmd FileType asciidoc :call SetProseOptions()
+autocmd FileType rst :call SetProseOptions()
 
 " Set encoding for asciidoc.
 autocmd FileType asciidoc setlocal encoding=utf-8
