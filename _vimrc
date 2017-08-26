@@ -59,6 +59,9 @@ set belloff=all
 " trackpad contact on laptop.
 set mouse=
 
+" set internal encoding
+set encoding=utf-8
+
 " Ex mode is useless. Don't enter it by accident.
 nnoremap Q <nop>
 
