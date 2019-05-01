@@ -42,7 +42,7 @@ let g:loaded_togglebg = 1
 let g:markdown_fold_style = 'nested'
 
 " Clang-Format
-let g:clang_format#command=$CLANGFORMAT_COMMAND
+let g:clang_format#detect_style_file=1
 map <leader>cf :ClangFormat<CR>
 
 " You Complete Me
