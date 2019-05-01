@@ -177,7 +177,7 @@ if has("gui_running")
     set columns=110
     " winpos -1050 -200
 else
-    colorscheme delek
+    colorscheme murphy
 endif
 
 " Syntax highlighting.
@@ -289,9 +289,6 @@ autocmd filetype help setlocal nonumber
 autocmd filetype help nnoremap <buffer><cr> <c-]>   " Enter selects subject
 autocmd filetype help nnoremap <buffer><bs> <c-T>   " Backspace to go back
 autocmd filetype help setlocal colorcolumn=
-
-" Color column.
-set colorcolumn=100
 
 " Y yanks from cursor to the end of the line.
 nmap Y y$
