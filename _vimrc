@@ -119,15 +119,6 @@ nmap <leader>ev :e $MYVIMRC<CR>
 " Source _vimrc/.vimrc.
 nmap <leader>sv :so $MYVIMRC<CR>
 
-" Load dev notes.
-nmap <leader>nd :e $HOME/notes/dev/index.adoc<CR>
-
-" Load work notes.
-nmap <leader>nw :e $HOME/notes/work/work.md<CR>
-
-" Load personal notes.
-nmap <leader>nj :e $HOME/notes/personal/journal.md<CR>
-
 " Yank the full path w/o the filename to the system clipboard.
 nmap <leader>yp :let @* = expand("%:p:h")<CR>
 
