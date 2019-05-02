@@ -168,7 +168,7 @@ if has("gui_running")
     set columns=110
     " winpos -1050 -200
 else
-    colorscheme murphy
+    colorscheme slate
 endif
 
 " Syntax highlighting.
