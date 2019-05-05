@@ -316,9 +316,6 @@ set list
 " For wrapping while typing and auto-formatting paragraphs.
 set textwidth=80
 
-" Auto change the directory to the current file I'm working on.
-set autochdir
-
 " Read .vimrc from current directory if it exists. This allows me to configure
 " project-specific tab stops.
 set exrc
