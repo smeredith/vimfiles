@@ -14,7 +14,6 @@ let maplocalleader=","
 " ==================================================
 
 " netrw
-
 let g:netrw_banner=0
 
 " Ctrl-p
@@ -37,9 +36,6 @@ let g:bufExplorerDisableDefaultKeyMapping=1
 
 " Don't let Solarized remap F5 by not loading the plugin. (But can't toggle background.)
 let g:loaded_togglebg = 1
-
-" Make vim-markdown-folding show only top level headers by default.
-let g:markdown_fold_style = 'nested'
 
 " Clang-Format
 let g:clang_format#detect_style_file=1
