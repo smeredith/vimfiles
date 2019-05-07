@@ -245,6 +245,8 @@ filetype plugin indent on
 function! SetProseOptions()
     set formatoptions=q
     set nojoinspaces
+    set spelllang=en_us
+    set spell
 endfunction
 
 " Set tabstop to 2 for xml files.
