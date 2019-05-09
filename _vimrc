@@ -48,6 +48,9 @@ nmap <leader>gd :YcmCompleter GoToDeclaration<CR>
 nmap <leader>gt :YcmCompleter GetType<CR>
 nmap <leader>fi :YcmCompleter FixIt<CR>
 
+" Chrome OS SSH hterm: Copy to system clipboard via OSC52
+vmap <C-c> y:call SendViaOSC52(getreg('"'))<cr>
+
 " ==================================================
 
 " Clean whitespace from end of all lines and
@@ -69,7 +72,6 @@ function! SetProseOptions()
 endfunction
 
 " ==================================================
-
 
 " Expand hard tabs this much.
 set tabstop=4
