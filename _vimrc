@@ -24,7 +24,7 @@ let g:ctrlp_custom_ignore = {
     \ 'file': '\.exe$\|\.so$\|\.dll$',
     \ }
 " Use F5 in ctrlp window to clear cache.
-let g:ctrlp_clear_cache_on_exit = 0
+let g:ctrlp_clear_cache_on_exit = 1
 
 " Using Pathogen to manage plugins.  Use .git as a root marker.
 call pathogen#infect()
@@ -46,6 +46,8 @@ map <leader>cf :ClangFormat<CR>
 nmap <leader>gf :YcmCompleter GoToInclude<CR>
 nmap <leader>gd :YcmCompleter GoToDeclaration<CR>
 nmap <leader>gt :YcmCompleter GetType<CR>
+nmap <leader>gg :YcmCompleter GoTo<CR>
+nmap <leader>gp :YcmCompleter GetParent<CR>
 nmap <leader>fi :YcmCompleter FixIt<CR>
 
 " Chrome OS SSH hterm: Copy to system clipboard via OSC52
@@ -65,7 +67,6 @@ endfunction
 
 " Set options for writing prose.
 function! SetProseOptions()
-    set formatoptions=q
     set nojoinspaces
     set spelllang=en_us
     set spell
@@ -94,8 +95,8 @@ set scrolloff=2
 " Don't insert newlines to wrap text.
 set textwidth=0
 
-" Don't auto wrap lines with newlines at textwidth.
-set formatoptions-=t
+" q: gg formats comments; l: long lines not broken in insert mode
+set formatoptions=ql
 
 " Don't wrap lines.
 set nowrap
