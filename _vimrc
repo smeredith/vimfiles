@@ -74,6 +74,9 @@ endfunction
 
 " ==================================================
 
+" Security mitigation for older versions
+set nomodeline
+
 " Expand hard tabs this much.
 set tabstop=4
 
@@ -187,7 +190,7 @@ set writebackup
 set undofile
 
 " Colors
-colorscheme torte
+colorscheme industry
 
 " Syntax highlighting.
 syntax on
