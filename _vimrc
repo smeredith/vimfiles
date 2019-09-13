@@ -69,7 +69,6 @@ endfunction
 function! SetProseOptions()
     set nojoinspaces
     set spelllang=en_us
-    set spell
 endfunction
 
 " ==================================================
@@ -118,7 +117,7 @@ set listchars=trail:·,tab:»-
 set number
 
 " No bells!
-set belloff=all
+" set belloff=all
 
 " Don't let the mouse move the cursor position. This helps with accidental
 " trackpad contact on laptop.
@@ -189,8 +188,8 @@ set writebackup
 " Persistent undo between sessions.
 set undofile
 
-" Colors
-colorscheme industry
+" Color
+colorscheme ron
 
 " Syntax highlighting.
 syntax on
@@ -294,6 +293,9 @@ nmap <leader>yp :let @* = expand("%:p:h")<CR>
 
 " Yank the full path and filename to the Windows clipboard.
 nmap <leader>yf :let @* = expand("%:p")<CR>
+
+nmap <leader>p4 :!p4 edit %:p<CR>
+nmap <leader>ff :find modules/**/
 
 " Move through quickfix list.
 nmap ]q :cnext<CR>
