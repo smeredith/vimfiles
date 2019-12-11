@@ -175,6 +175,9 @@ set hidden
 " project-specific tab stops.
 set exrc
 
+" Auto change the directory to the current file I'm working on.
+set autochdir
+
 " Number of command lines to remember.
 set history=1000
 
@@ -189,7 +192,7 @@ set writebackup
 set undofile
 
 " Color
-colorscheme ron
+colorscheme default
 
 " Syntax highlighting.
 syntax on
