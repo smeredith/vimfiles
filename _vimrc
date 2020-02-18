@@ -2,6 +2,9 @@
 " changes other options as a side effect.
 set nocompatible
 
+" Allow a local .vimrc in current dir
+set exrc
+
 " Change the line find undo to be a backslash instead of a comma.
 nnoremap \ ,
 
@@ -15,16 +18,6 @@ let maplocalleader=","
 
 " netrw
 let g:netrw_banner=0
-
-" Ctrl-p
-let g:ctrlp_root_markers = ['.p4ignore']
-let g:ctrlp_max_files = 0
-let g:ctrlp_custom_ignore = {
-    \ 'dir':  '\.git$\|build$\|symbols$',
-    \ 'file': '\.exe$\|\.so$\|\.dll$',
-    \ }
-" Use F5 in ctrlp window to clear cache.
-let g:ctrlp_clear_cache_on_exit = 1
 
 " Using Pathogen to manage plugins.  Use .git as a root marker.
 call pathogen#infect()
@@ -52,6 +45,9 @@ nmap <leader>fi :YcmCompleter FixIt<CR>
 
 " Chrome OS SSH hterm: Copy to system clipboard via OSC52
 vmap <C-c> y:call SendViaOSC52(getreg('"'))<cr>
+
+set rtp+=~/.fzf
+map <C-p> :Files<CR>
 
 " ==================================================
 
@@ -192,7 +188,7 @@ set writebackup
 set undofile
 
 " Color
-colorscheme default
+colorscheme evening
 
 " Syntax highlighting.
 syntax on
@@ -314,6 +310,9 @@ autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 " Set filetype.
 autocmd BufReadPost,BufNewFile *.md setlocal filetype=markdown
 autocmd BufReadPost,BufNewFile *.adoc setlocal filetype=asciidoc
+
+" Disable markdown syntax highlighting
+autocmd FileType markdown setlocal syntax=off
 
 " Set options for prose.
 autocmd FileType text :call SetProseOptions()
