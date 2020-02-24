@@ -15,17 +15,22 @@ let maplocalleader=","
 if !isdirectory($HOME."/vimfiles/backup")
     call mkdir($HOME."/vimfiles/backup", "p")
 endif
+set backupdir=$HOME/vimfiles/backup//
+" Make a backup before saving.
+set writebackup
+
+
 if !isdirectory($HOME."/vimfiles/swap")
     call mkdir($HOME."/vimfiles/swap", "p")
 endif
+set directory=$HOME/vimfiles/swap//
+
 if !isdirectory($HOME."/vimfiles/undo")
     call mkdir($HOME."/vimfiles/undo", "p")
 endif
-
-set backupdir=$HOME/vimfiles/backup//
-set directory=$HOME/vimfiles/swap//
 set undodir=$HOME/vimfiles/undo//
-
+" Persistent undo between sessions.
+set undofile
 
 " ==================================================
 " Plugin settings.
@@ -57,6 +62,9 @@ let g:netrw_banner=0
 let g:bufExplorerShowRelativePath=1
 let g:bufExplorerDisableDefaultKeyMapping=1
 
+" Show Buffer Explorer list in current window.
+nmap <leader>bl :BufExplorer<CR>
+
 " Don't let Solarized remap F5 by not loading the plugin. (But can't toggle background.)
 let g:loaded_togglebg = 1
 
@@ -78,6 +86,9 @@ nmap <leader>ry :YcmRestartServer<CR>
 
 " fzf
 map <C-p> :Files<CR>
+"
+" Fancy % matching, including xml tags.
+:source $VIMRUNTIME/macros/matchit.vim
 
 " ==================================================
 
@@ -125,9 +136,6 @@ set scrolloff=2
 
 " Don't insert newlines to wrap text.
 set textwidth=0
-
-" q: formats comments; l: long lines not broken in insert mode
-set formatoptions=ql
 
 " Don't wrap lines.
 set nowrap
@@ -207,12 +215,6 @@ set autochdir
 " Number of command lines to remember.
 set history=1000
 
-" Make a backup before saving.
-set writebackup
-
-" Persistent undo between sessions.
-set undofile
-
 " Color
 colorscheme industry
 
@@ -279,9 +281,6 @@ nmap gV `[v`]
 " Switch to alternate buffer.
 nmap <leader>ba <C-^>
 
-" Show Buffer Explorer list in current window.
-nmap <leader>bl :BufExplorer<CR>
-
 " Clean whitespace from end of current line.
 nmap <leader>cl :.s/\s\+$//e<CR>
 
@@ -316,11 +315,12 @@ nmap <leader>yp :let @* = expand("%:p:h")<CR>
 " Yank the full path and filename to the Windows clipboard.
 nmap <leader>yf :let @* = expand("%:p")<CR>
 
-nmap <leader>ff :find modules/**/
-
 " Move through quickfix list.
 nmap ]q :cnext<CR>
 nmap [q :cprev<CR>
+
+" q: formats comments; l: long lines not broken in insert mode
+autocmd BufNewFile,BufRead * setlocal formatoptions=ql
 
 " Set tabstop to 2 for xml files.
 autocmd FileType xml,markdown setlocal softtabstop=4
@@ -351,6 +351,4 @@ autocmd filetype help nnoremap <buffer><cr> <c-]>   " Enter selects subject
 autocmd filetype help nnoremap <buffer><bs> <c-T>   " Backspace to go back
 autocmd filetype help setlocal colorcolumn=
 
-" Fancy % matching, including xml tags.
-:source $VIMRUNTIME/macros/matchit.vim
 
