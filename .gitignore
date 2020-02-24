@@ -3,3 +3,6 @@ bundle
 .DS_Store
 autoload
 plugged
+swap
+undo
+backup

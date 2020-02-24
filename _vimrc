@@ -12,12 +12,28 @@ nnoremap \ ,
 let mapleader=","
 let maplocalleader=","
 
+if !isdirectory($HOME."/vimfiles/backup")
+    call mkdir($HOME."/vimfiles/backup", "p")
+endif
+if !isdirectory($HOME."/vimfiles/swap")
+    call mkdir($HOME."/vimfiles/swap", "p")
+endif
+if !isdirectory($HOME."/vimfiles/undo")
+    call mkdir($HOME."/vimfiles/undo", "p")
+endif
+
+set backupdir=$HOME/vimfiles/backup//
+set directory=$HOME/vimfiles/swap//
+set undodir=$HOME/vimfiles/undo//
+
+
 " ==================================================
 " Plugin settings.
 " ==================================================
 
-if empty(glob('~/vimfiles/autoload/plug.vim'))
-      silent !curl -fLo ~/vimfiles/autoload/plug.vim --create-dirs
+" vim-plug
+if empty(glob('$HOME/vimfiles/autoload/plug.vim'))
+      silent !curl -fLo $HOME/vimfiles/autoload/plug.vim --create-dirs
           \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
       autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
@@ -60,13 +76,13 @@ nmap <leader>fi :YcmCompleter FixIt<CR>
 nmap <leader>rr :YcmCompleter RefactorRename 
 nmap <leader>ry :YcmRestartServer<CR>
 
+" fzf
 map <C-p> :Files<CR>
 
 " ==================================================
 
 " Chrome OS SSH hterm: Copy to system clipboard via OSC52
 vmap <C-c> y:call SendViaOSC52(getreg('"'))<cr>
-
 
 " Clean whitespace from end of all lines and
 " replace special characters with standard ones.
@@ -110,7 +126,7 @@ set scrolloff=2
 " Don't insert newlines to wrap text.
 set textwidth=0
 
-" q: gg formats comments; l: long lines not broken in insert mode
+" q: formats comments; l: long lines not broken in insert mode
 set formatoptions=ql
 
 " Don't wrap lines.
@@ -184,19 +200,12 @@ set splitbelow
 " Allow unsaved buffers that do not have a current window.
 set hidden
 
-" Read .vimrc from current directory if it exists. This allows me to configure
-" project-specific tab stops.
-set exrc
-
 " Auto change the directory to the current file I'm working on.
+" Great for the general case: less good when using YCM.
 set autochdir
 
 " Number of command lines to remember.
 set history=1000
-
-set backupdir=$HOME/vimbackup//
-set directory=$HOME/vimswap//
-set undodir=$HOME/vimundo//
 
 " Make a backup before saving.
 set writebackup
