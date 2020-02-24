@@ -55,7 +55,10 @@ nmap <leader>gd :YcmCompleter GoToDeclaration<CR>
 nmap <leader>gt :YcmCompleter GetType<CR>
 nmap <leader>gg :YcmCompleter GoTo<CR>
 nmap <leader>gp :YcmCompleter GetParent<CR>
+nmap <leader>gr :YcmCompleter GoToReferences<CR>
 nmap <leader>fi :YcmCompleter FixIt<CR>
+nmap <leader>rr :YcmCompleter RefactorRename 
+nmap <leader>ry :YcmRestartServer<CR>
 
 map <C-p> :Files<CR>
 
@@ -202,7 +205,7 @@ set writebackup
 set undofile
 
 " Color
-colorscheme evening
+colorscheme industry
 
 " Syntax highlighting.
 syntax on
@@ -280,9 +283,6 @@ nmap <leader>ca :call CleanBuffer()<CR>
 " Turn off any highlighed search text.
 nmap <leader>nh :nohls<CR>
 
-" Show the registers from things cut/yanked.
-nmap <leader>rr :registers<CR>
-
 " Toggle spelling.
 nmap <leader>ts :setlocal spell! spelllang=en_us<CR>
 
@@ -307,7 +307,6 @@ nmap <leader>yp :let @* = expand("%:p:h")<CR>
 " Yank the full path and filename to the Windows clipboard.
 nmap <leader>yf :let @* = expand("%:p")<CR>
 
-nmap <leader>p4 :!p4 edit %:p<CR>
 nmap <leader>ff :find modules/**/
 
 " Move through quickfix list.
