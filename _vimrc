@@ -25,14 +25,17 @@ endif
 call plug#begin('~/vimfiles/plugged')
 Plug 'junegunn/fzf', { 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
+Plug 'jlanzarotta/bufexplorer'
+Plug 'rhysd/vim-clang-format'
+Plug 'altercation/vim-colors-solarized'
+Plug 'tpope/vim-fugitive'
+Plug 'PProvost/vim-ps1'
+Plug 'tpope/vim-surround'
+Plug '~/vimfiles/plugged/YouCompleteMe'
 call plug#end()
 
 " netrw
 let g:netrw_banner=0
-
-" Using Pathogen to manage plugins.  Use .git as a root marker.
-call pathogen#infect()
-call pathogen#helptags()
 
 " Buffer Explorer.
 let g:bufExplorerShowRelativePath=1
@@ -54,13 +57,13 @@ nmap <leader>gg :YcmCompleter GoTo<CR>
 nmap <leader>gp :YcmCompleter GetParent<CR>
 nmap <leader>fi :YcmCompleter FixIt<CR>
 
-" Chrome OS SSH hterm: Copy to system clipboard via OSC52
-vmap <C-c> y:call SendViaOSC52(getreg('"'))<cr>
-
-set rtp+=~/.fzf
 map <C-p> :Files<CR>
 
 " ==================================================
+
+" Chrome OS SSH hterm: Copy to system clipboard via OSC52
+vmap <C-c> y:call SendViaOSC52(getreg('"'))<cr>
+
 
 " Clean whitespace from end of all lines and
 " replace special characters with standard ones.
