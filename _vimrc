@@ -16,6 +16,17 @@ let maplocalleader=","
 " Plugin settings.
 " ==================================================
 
+if empty(glob('~/vimfiles/autoload/plug.vim'))
+      silent !curl -fLo ~/vimfiles/autoload/plug.vim --create-dirs
+          \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+      autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin('~/vimfiles/plugged')
+Plug 'junegunn/fzf', { 'do': './install --bin' }
+Plug 'junegunn/fzf.vim'
+call plug#end()
+
 " netrw
 let g:netrw_banner=0
 
