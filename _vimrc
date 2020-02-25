@@ -63,7 +63,7 @@ let g:bufExplorerShowRelativePath=1
 let g:bufExplorerDisableDefaultKeyMapping=1
 
 " Show Buffer Explorer list in current window.
-nmap <leader>bl :BufExplorer<CR>
+nmap <leader>be :BufExplorer<CR>
 
 " Don't let Solarized remap F5 by not loading the plugin. (But can't toggle background.)
 let g:loaded_togglebg = 1
@@ -86,7 +86,8 @@ nmap <leader>ry :YcmRestartServer<CR>
 
 " fzf
 map <C-p> :Files<CR>
-"
+nmap <leader>bl :Buffers<CR>
+
 " Fancy % matching, including xml tags.
 :source $VIMRUNTIME/macros/matchit.vim
 
