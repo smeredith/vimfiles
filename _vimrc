@@ -48,12 +48,18 @@ Plug 'junegunn/fzf', { 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 Plug 'jlanzarotta/bufexplorer'
 Plug 'rhysd/vim-clang-format'
-Plug 'altercation/vim-colors-solarized'
+Plug 'lifepillar/vim-solarized8'
+Plug 'morhetz/gruvbox'
 Plug 'tpope/vim-fugitive'
 Plug 'PProvost/vim-ps1'
 Plug 'tpope/vim-surround'
 Plug '~/vimfiles/plugged/YouCompleteMe'
 call plug#end()
+
+" Color
+let g:gruvbox_contrast_dark='hard'
+colorscheme industry
+set background=dark
 
 " netrw
 let g:netrw_banner=0
@@ -64,9 +70,6 @@ let g:bufExplorerDisableDefaultKeyMapping=1
 
 " Show Buffer Explorer list in current window.
 nmap <leader>be :BufExplorer<CR>
-
-" Don't let Solarized remap F5 by not loading the plugin. (But can't toggle background.)
-let g:loaded_togglebg = 1
 
 " Clang-Format
 let g:clang_format#detect_style_file=1
@@ -216,8 +219,6 @@ set autochdir
 " Number of command lines to remember.
 set history=1000
 
-" Color
-colorscheme industry
 
 " Syntax highlighting.
 syntax on
