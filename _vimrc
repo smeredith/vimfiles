@@ -56,10 +56,15 @@ Plug 'tpope/vim-surround'
 Plug '~/vimfiles/plugged/YouCompleteMe'
 call plug#end()
 
+" Syntax highlighting (comes before hightlight)
+syntax on
+
 " Color
 let g:gruvbox_contrast_dark='hard'
 colorscheme industry
 set background=dark
+set cursorline
+highlight CursorLine cterm=none ctermbg=darkgrey
 
 " netrw
 let g:netrw_banner=0
@@ -219,9 +224,6 @@ set autochdir
 " Number of command lines to remember.
 set history=1000
 
-
-" Syntax highlighting.
-syntax on
 
 " Make quickfix full width.
 botright copen
