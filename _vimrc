@@ -60,9 +60,7 @@ call plug#end()
 syntax on
 
 " Color
-colorscheme dim
-set cursorline
-highlight CursorLine cterm=NONE ctermbg=7
+colorscheme default
 
 " netrw
 let g:netrw_banner=0
