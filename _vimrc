@@ -48,11 +48,11 @@ Plug 'junegunn/fzf', { 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 Plug 'jlanzarotta/bufexplorer'
 Plug 'rhysd/vim-clang-format'
-Plug 'lifepillar/vim-solarized8'
 Plug 'tpope/vim-fugitive'
 Plug 'PProvost/vim-ps1'
 Plug 'tpope/vim-surround'
 Plug 'Valloric/ListToggle'
+Plug 'jeffkreeftmeijer/vim-dim'
 Plug '~/vimfiles/plugged/YouCompleteMe'
 call plug#end()
 
@@ -60,8 +60,7 @@ call plug#end()
 syntax on
 
 " Color
-colorscheme industry
-set background=dark
+colorscheme dim
 set cursorline
 highlight CursorLine cterm=bold ctermbg=darkgrey
 
