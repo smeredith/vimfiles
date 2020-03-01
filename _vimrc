@@ -95,6 +95,8 @@ nmap <leader>ry :YcmRestartServer<CR>
 " fzf
 map <C-p> :Files<CR>
 nmap <leader>bl :Buffers<CR>
+" tell fzf to use ag to search in order to leverage .gitignore
+let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 
 " Fancy % matching, including xml tags.
 :source $VIMRUNTIME/macros/matchit.vim
