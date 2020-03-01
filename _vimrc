@@ -60,7 +60,7 @@ call plug#end()
 syntax on
 
 " Color
-colorscheme default
+colorscheme dim
 
 " netrw
 let g:netrw_banner=0
@@ -361,5 +361,4 @@ autocmd filetype help setlocal nonumber
 autocmd filetype help nnoremap <buffer><cr> <c-]>   " Enter selects subject
 autocmd filetype help nnoremap <buffer><bs> <c-T>   " Backspace to go back
 autocmd filetype help setlocal colorcolumn=
-
 
