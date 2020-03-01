@@ -62,7 +62,7 @@ syntax on
 " Color
 colorscheme dim
 set cursorline
-highlight CursorLine cterm=bold ctermbg=darkgrey
+highlight CursorLine cterm=NONE ctermbg=7
 
 " netrw
 let g:netrw_banner=0
