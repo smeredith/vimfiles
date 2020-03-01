@@ -63,7 +63,7 @@ syntax on
 colorscheme industry
 set background=dark
 set cursorline
-highlight CursorLine cterm=none ctermbg=darkgrey
+highlight CursorLine cterm=bold ctermbg=darkgrey
 
 " netrw
 let g:netrw_banner=0
