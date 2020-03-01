@@ -49,10 +49,10 @@ Plug 'junegunn/fzf.vim'
 Plug 'jlanzarotta/bufexplorer'
 Plug 'rhysd/vim-clang-format'
 Plug 'lifepillar/vim-solarized8'
-Plug 'morhetz/gruvbox'
 Plug 'tpope/vim-fugitive'
 Plug 'PProvost/vim-ps1'
 Plug 'tpope/vim-surround'
+Plug 'Valloric/ListToggle'
 Plug '~/vimfiles/plugged/YouCompleteMe'
 call plug#end()
 
@@ -60,7 +60,6 @@ call plug#end()
 syntax on
 
 " Color
-let g:gruvbox_contrast_dark='hard'
 colorscheme industry
 set background=dark
 set cursorline
@@ -82,6 +81,7 @@ map <leader>cf :ClangFormat<CR>
 
 " You Complete Me
 " Requires compile_commands.json in enlistment root.
+let g:ycm_always_populate_location_list=1
 nmap <leader>gf :YcmCompleter GoToInclude<CR>
 nmap <leader>gd :YcmCompleter GoToDeclaration<CR>
 nmap <leader>gt :YcmCompleter GetType<CR>
@@ -93,7 +93,7 @@ nmap <leader>rr :YcmCompleter RefactorRename
 nmap <leader>ry :YcmRestartServer<CR>
 
 " fzf
-map <C-p> :Files<CR>
+nmap <C-p> :Files<CR>
 nmap <leader>bl :Buffers<CR>
 " tell fzf to use ag to search in order to leverage .gitignore
 let $FZF_DEFAULT_COMMAND = 'ag -g ""'
@@ -101,6 +101,10 @@ let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 " Fancy % matching, including xml tags.
 :source $VIMRUNTIME/macros/matchit.vim
 
+" List toggle
+let g:lt_location_list_toggle_map='<leader>tl'
+let g:lt_quickfix_list_toggle_map='<leader>tq'
+let g:lt_height=10
 " ==================================================
 
 " Chrome OS SSH hterm: Copy to system clipboard via OSC52
@@ -324,6 +328,10 @@ nmap <leader>yf :let @* = expand("%:p")<CR>
 " Move through quickfix list.
 nmap ]q :cnext<CR>
 nmap [q :cprev<CR>
+
+" Move through location list.
+nmap ]l :lnext<CR>
+nmap [l :lprev<CR>
 
 " q: formats comments; l: long lines not broken in insert mode
 autocmd BufNewFile,BufRead * setlocal formatoptions=ql
