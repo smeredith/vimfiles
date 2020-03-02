@@ -316,11 +316,13 @@ nmap <leader>ev :e $MYVIMRC<CR>
 " Source _vimrc/.vimrc.
 nmap <leader>sv :so $MYVIMRC<CR>
 
-" Yank the full path w/o the filename to the system clipboard.
-nmap <leader>yp :let @* = expand("%:p:h")<CR>
+nmap <leader>ca :call CleanBuffer()<CR>
 
-" Yank the full path and filename to the Windows clipboard.
-nmap <leader>yf :let @* = expand("%:p")<CR>
+" Yank the full path w/o the filename to the system clipboard.
+nmap <leader>yp :let @+=expand("%:p:h")<CR>
+
+" Yank the full path and filename to the system clipboard.
+nmap <leader>yf :let @+=expand("%:p")<CR>
 
 " Move through quickfix list.
 nmap ]q :cnext<CR>
