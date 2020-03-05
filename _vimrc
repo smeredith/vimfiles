@@ -94,6 +94,8 @@ nmap <C-p> :Files<CR>
 nmap <leader>bl :Buffers<CR>
 " tell fzf to use ag to search in order to leverage .gitignore
 let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+" tell fzf to use 16 color scheme and use black for the text after the prompt
+let $FZF_DEFAULT_OPTS='--color=16,fg:0'
 
 " Fancy % matching, including xml tags.
 :source $VIMRUNTIME/macros/matchit.vim
