@@ -168,6 +168,8 @@ set listchars=trail:·,tab:»-
 
 " Show line numbers.
 set number
+" Make them relative.
+set relativenumber
 
 " No bells!
 " set belloff=all
@@ -368,10 +370,8 @@ autocmd filetype help nnoremap <buffer><cr> <c-]>   " Enter selects subject
 autocmd filetype help nnoremap <buffer><bs> <c-T>   " Backspace to go back
 autocmd filetype help setlocal colorcolumn=
 
-" Give current light a highlight
-highlight CursorLine cterm=NONE ctermbg=7
-highlight CursorLineNr cterm=NONE ctermbg=7
-set cursorline
+" Give current line number a highlight
+highlight CursorLineNr cterm=NONE ctermbg=8 ctermfg=15
 
 " work-around Windows Terminal bold always white problem (making bold text invisible)
 highlight TabLineSel cterm=NONE
