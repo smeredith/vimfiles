@@ -19,7 +19,6 @@ set backupdir=$HOME/vimfiles/backup//
 " Make a backup before saving.
 set writebackup
 
-
 if !isdirectory($HOME."/vimfiles/swap")
     call mkdir($HOME."/vimfiles/swap", "p")
 endif
@@ -31,6 +30,9 @@ endif
 set undodir=$HOME/vimfiles/undo//
 " Persistent undo between sessions.
 set undofile
+
+" allows ':find foo' to search subdirectories.
+set path+=**
 
 " ==================================================
 " Plugin settings.
@@ -268,7 +270,7 @@ if has("gui_running")
     endif
 endif
 
-" <leader> s for snippets
+" by convention: <leader> s for snippets
 " Insert the current date as a top-level asciidoc/markdown header, like:
 " # 2017-03-01 Wednesday
 " then enter insert mode.
