@@ -94,7 +94,7 @@ nmap <C-p> :Files<CR>
 nmap <leader>bl :Buffers<CR>
 " tell fzf to use ag to search in order to leverage .gitignore
 let $FZF_DEFAULT_COMMAND = 'ag -g ""'
-" tell fzf to use 16 color scheme and use black for the text after the prompt
+" tell fzf to use 16 color scheme and use black for the text after the prompt (as a work-around for Windows Terminal always showing bold as white, making it invisible on light colorscheme)
 let $FZF_DEFAULT_OPTS='--color=16,fg:0'
 
 " Fancy % matching, including xml tags.
@@ -366,3 +366,12 @@ autocmd filetype help nnoremap <buffer><cr> <c-]>   " Enter selects subject
 autocmd filetype help nnoremap <buffer><bs> <c-T>   " Backspace to go back
 autocmd filetype help setlocal colorcolumn=
 
+" Give current light a highlight
+highlight CursorLine cterm=NONE ctermbg=7
+highlight CursorLineNr cterm=NONE ctermbg=7
+set cursorline
+
+" work-around Windows Terminal bold always white problem (making bold text invisible)
+highlight TabLineSel cterm=NONE
+highlight ModeMsg cterm=NONE
+highlight VisualNOS cterm=underline
