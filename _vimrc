@@ -62,7 +62,7 @@ call plug#end()
 syntax on
 
 " Color
-colorscheme dim
+colorscheme default
 
 " netrw
 let g:netrw_banner=0
@@ -114,8 +114,8 @@ vmap <C-c> y:call SendViaOSC52(getreg('"'))<cr>
 function! CleanBuffer()
     let l:save = winsaveview()
     :%s/\s\+$//ge
-    :%s/’/'/ge
-    :%s/\(“\|”\)/"/ge
+    :%s/â€™/'/ge
+    :%s/\(â€œ\|â€\)/"/ge
     call winrestview(l:save)
 endfunction
 
@@ -162,7 +162,7 @@ set linebreak
 set list
 
 " Whitespace characters to show (trailing spaces and tabs).
-set listchars=trail:·,tab:»-
+set listchars=trail:Â·,tab:Â»-
 
 " Show line numbers.
 set number
