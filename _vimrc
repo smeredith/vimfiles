@@ -1,8 +1,8 @@
-" Use Vim settings, rather than Vi settings.  This must be first, because it
-" changes other options as a side effect.
+" Use Vim settings, rather than Vi settings.
+" This must be first, because it changes other options as a side effect.
 set nocompatible
 
-" Allow a local .vimrc in current dir
+" Allow a local .vimrc in current dir.
 set exrc
 
 " Change the line find undo to be a backslash instead of a comma.
@@ -15,24 +15,36 @@ let maplocalleader=","
 if !isdirectory($HOME."/vimfiles/backup")
     call mkdir($HOME."/vimfiles/backup", "p")
 endif
-set backupdir=$HOME/vimfiles/backup//
+
+" Instead of putting backup files in the same directory as the source file, put them all together.
+" set backupdir=$HOME/vimfiles/backup//
+
 " Make a backup before saving.
 set writebackup
 
 if !isdirectory($HOME."/vimfiles/swap")
     call mkdir($HOME."/vimfiles/swap", "p")
 endif
+
 set directory=$HOME/vimfiles/swap//
 
 if !isdirectory($HOME."/vimfiles/undo")
     call mkdir($HOME."/vimfiles/undo", "p")
 endif
+
 set undodir=$HOME/vimfiles/undo//
+
 " Persistent undo between sessions.
 set undofile
 
 " allows ':find foo' to search subdirectories.
 set path+=**
+
+" Syntax highlighting (comes before hightlight)
+syntax on
+
+" Color
+colorscheme default
 
 " ==================================================
 " Plugin settings.
@@ -53,16 +65,10 @@ Plug 'rhysd/vim-clang-format'
 Plug 'tpope/vim-fugitive'
 Plug 'PProvost/vim-ps1'
 Plug 'tpope/vim-surround'
-Plug 'Valloric/ListToggle'
+" Plug 'Valloric/ListToggle'
 Plug 'jeffkreeftmeijer/vim-dim'
-Plug '~/vimfiles/plugged/YouCompleteMe'
+" Plug '~/vimfiles/plugged/YouCompleteMe'
 call plug#end()
-
-" Syntax highlighting (comes before hightlight)
-syntax on
-
-" Color
-colorscheme default
 
 " netrw
 let g:netrw_banner=0
@@ -105,9 +111,6 @@ let g:lt_location_list_toggle_map='<leader>tl'
 let g:lt_quickfix_list_toggle_map='<leader>tq'
 let g:lt_height=10
 " ==================================================
-
-" Chrome OS SSH hterm: Copy to system clipboard via OSC52
-vmap <C-c> y:call SendViaOSC52(getreg('"'))<cr>
 
 " Clean whitespace from end of all lines and
 " replace special characters with standard ones.
@@ -166,14 +169,12 @@ set listchars=trail:·,tab:»-
 
 " Show line numbers.
 set number
-" Make them relative.
-set relativenumber
 
 " No bells!
 " set belloff=all
 
-" Don't let the mouse move the cursor position. This helps with accidental
-" trackpad contact on laptop.
+" Don't let the mouse move the cursor position.
+" This helps with accidental trackpad contact on laptop.
 set mouse=
 
 " set internal encoding
@@ -231,11 +232,6 @@ set autochdir
 " Number of command lines to remember.
 set history=1000
 
-
-" Make quickfix full width.
-botright copen
-botright cwindow
-
 " Enable file type detection (sets cindent, etc) and load indent files, to do
 " language-dependent indenting.
 filetype plugin indent on
@@ -254,7 +250,7 @@ if has("gui_running")
     set guioptions +=c
 
     " Default window size.
-    set columns=110
+    " set columns=110
     " winpos -1050 -200
 else
 endif
@@ -314,12 +310,6 @@ nmap <leader>tn :setlocal number!<CR>
 " Toggle relative line numbers.
 nmap <leader>tr :setlocal relativenumber!<CR>
 
-" Edit _vimrc/.vimrc.
-nmap <leader>ev :e $MYVIMRC<CR>
-
-" Source _vimrc/.vimrc.
-nmap <leader>sv :so $MYVIMRC<CR>
-
 nmap <leader>ca :call CleanBuffer()<CR>
 
 " Yank the full path w/o the filename to the system clipboard.
@@ -336,22 +326,20 @@ nmap [q :cprev<CR>
 nmap ]l :lnext<CR>
 nmap [l :lprev<CR>
 
-" q: formats comments; l: long lines not broken in insert mode
-autocmd BufNewFile,BufRead * setlocal formatoptions=ql
+" Note: Use filetype.vim to map extensions to filetypes
 
-" Set tabstop to 2 for xml files.
+" Set tabstop to 2 for some files.
 autocmd FileType xml,markdown setlocal softtabstop=4
 autocmd FileType xml,markdown setlocal shiftwidth=4
 
 " Set 2 char spacing for yaml files.
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
-" Set filetype.
-autocmd BufReadPost,BufNewFile *.md setlocal filetype=markdown
-autocmd BufReadPost,BufNewFile *.adoc setlocal filetype=asciidoc
-
 " Disable markdown syntax highlighting
 autocmd FileType markdown setlocal syntax=off
+
+" Set encoding for asciidoc.
+autocmd FileType asciidoc setlocal fileencoding=utf-8
 
 " Set options for prose.
 autocmd FileType text :call SetProseOptions()
@@ -359,19 +347,19 @@ autocmd FileType markdown :call SetProseOptions()
 autocmd FileType asciidoc :call SetProseOptions()
 autocmd FileType rst :call SetProseOptions()
 
-" Set encoding for asciidoc.
-autocmd FileType asciidoc setlocal fileencoding=utf-8
-
 " Help behavior.
 autocmd filetype help setlocal nonumber
 autocmd filetype help nnoremap <buffer><cr> <c-]>   " Enter selects subject
 autocmd filetype help nnoremap <buffer><bs> <c-T>   " Backspace to go back
 autocmd filetype help setlocal colorcolumn=
 
-" Give current line number a highlight
+" Chrome OS SSH hterm: Copy to system clipboard via OSC52
+vmap <C-c> y:call SendViaOSC52(getreg('"'))<cr>
+
+" Give current line number a highlight to make it easier to find on terminal.
 highlight CursorLineNr cterm=NONE ctermbg=8 ctermfg=15
 
-" work-around Windows Terminal bold always white problem (making bold text invisible)
+" Work-around Windows Terminal bold always white problem (making bold text invisible)
 highlight TabLineSel cterm=NONE
 highlight ModeMsg cterm=NONE
 highlight VisualNOS cterm=underline
