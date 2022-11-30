@@ -1,9 +1,0 @@
-source ~/_vimrc
-
-" vsvim
-" Note: Tools | Options | VsVim | Keyboard: set all Ctrl + <single char> to "VsVim" and
-" the rest to "Visual Studio".
-map <c-o> :vsc View.NavigateBackward<CR>
-map <c-i> :vsc View.NavigateForward<CR>
-map <c-^> :vsc Window.NextDocumentWindowNav<CR>
-map <leader>cf :vsc Tools.ClangFormatSelection<CR>
