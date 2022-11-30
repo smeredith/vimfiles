@@ -12,21 +12,24 @@ nnoremap \ ,
 let mapleader=","
 let maplocalleader=","
 
-if !isdirectory($HOME."/vimfiles/backup")
-    call mkdir($HOME."/vimfiles/backup", "p")
-endif
+" if !isdirectory($HOME."/vimfiles/backup")
+"     call mkdir($HOME."/vimfiles/backup", "p")
+" endif
 
 " Instead of putting backup files in the same directory as the source file, put them all together.
 " set backupdir=$HOME/vimfiles/backup//
 
-" Make a backup before saving.
+" Make a backup before saving and delete it once saved.
 set writebackup
 
-if !isdirectory($HOME."/vimfiles/swap")
-    call mkdir($HOME."/vimfiles/swap", "p")
-endif
+" if !isdirectory($HOME."/vimfiles/swap")
+"     call mkdir($HOME."/vimfiles/swap", "p")
+" endif
+" 
+" set directory=$HOME/vimfiles/swap//
 
-set directory=$HOME/vimfiles/swap//
+" Don't bother with a swap file.
+set noswapfile
 
 if !isdirectory($HOME."/vimfiles/undo")
     call mkdir($HOME."/vimfiles/undo", "p")
