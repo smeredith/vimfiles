@@ -131,7 +131,8 @@ function! SetProseOptions()
     set spelllang=en_us
 endfunction
 
-" ==================================================
+" Show Buffer Explorer list in current window.
+nmap <leader>be :BufExplorer<CR>
 
 " Security mitigation for older versions
 set nomodeline
@@ -261,7 +262,7 @@ endif
 " Font.
 if has("gui_running")
     if has("gui_win32")
-        set guifont=Consolas:h11:cANSI
+        set guifont=Consolas:h13:cANSI
     elseif has("gui_macvim")
         set guifont=Monaco:h12
     else
